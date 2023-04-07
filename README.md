@@ -18,7 +18,7 @@ Banco de dados: da sua preferência, exemplo, mysql, mariadb e etc
 
 ### 🔧 Instalação
 
-Para ter um ambiente de trabalho pronto para execução, siga o passo apasso-a-passo informado.
+Para ter um ambiente de trabalho pronto para execução, siga o apasso-a-passo informado.
 
 Node e nmp:
 
