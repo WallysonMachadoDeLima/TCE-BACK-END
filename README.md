@@ -1,115 +1,62 @@
-<h1>TCE-BACK-END</h1>
-<p>Desafio TCE, back-end</p>
+# TCE-BACK-END
 
-# sample-node-api  
-A sample node js api for finding cars and accounts for a dealership,its used here to demonstrate the steps to extend API/ML with your own rest api.     
+Desafio do Tribunal de Contas de Rondônia, back-end no padrão REST-API
 
-## Steps
+## 🚀 Começando
 
-**Note**  
-`Only rest api with https support can be deployed behind API/ML, make sure to enable https support in your rest api.
-`   
-This sample express app, has https enabled already.    
+Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-## PART I: Download & Build on local
+### 📋 Pré-requisitos
 
-## Method 1: From github
-### 1) Clone the repository, install node packages  and verify routes locally
-
-``` 
-//on local
-git clone https://github.com/zowe/sample-node-api
-cd sample-node-api
-npm install
-npm start
-```
-
-Open your local browser and verify the sample-node-api is working by accessing:     
-`http://localhost:18000/accounts/`   
-`http://localhost:18000/accounts/1`   
-`http://localhost:18000/accounts/1/cars/`   
-
-
-### 2) Transfer project files from local to remote host
-
-**Note**  
-The `node_modules` folder will not be transferred, we can do npm install later on remote server itself to pull down required node packages
+Para rodar o projeto você deve ter no mínimo os seguintes requisitos
 
 ```
-cd sample-node-api
-npm run build
-scp -r dist ibmuser@my.mainframe.com:</usr/lpp/extender>/sample-node-api
+Node: 16.14.2 ou verão mais atual LTS
+npm: 8.5.0 ou verão mais atual LTS
+Banco de dados: da sua preferência, exemplo, mysql, mariadb e etc
 ```
 
-For the next step, ensure that you have node installed on z/OS and your PATH includes nodejs/bin directory.
+### 🔧 Instalação
+
+Para ter um ambiente de trabalho pronto para execução, siga o passo apasso-a-passo informado.
+
+Node e nmp:
+
+* Consulte [Alura](https://www.alura.com.br/artigos/como-instalar-node-js-windows-linux-macos?gclid=Cj0KCQjw_r6hBhDdARIsAMIDhV_pMPCXNRN4UTTcWJP5YBBN8R556nLzUG6-3cSIjvxOj07RtU8-gWUaArTnEALw_wcB) para instalar os pacostes independentemente de seu sistema operacional;
+
+Banco de dados:
+* Consulte [Alura](https://www.alura.com.br/artigos/mysql-do-download-e-instalacao-ate-sua-primeira-tabela) para instalar os o MySQl em sua máquina. Lembrando novamente, utilize o de sua preferência.;
+
+## 📦 Implantação
+
+Para finalizar a implantação, realize este último passoa passo
+
+Banco de dados:
+
+* Dentro do projeto tem um script, inicie seu Banco de dados e execute o mesmo, ele está no local
 
 ```
-ssh ibmuser@my.mainframe.com
-. ~/.profile - (Skip if you can already run "npm" on z/OS)
-cd </usr/lpp/extender>/sample-node-api
-npm install
+database\script.sql
 ```
+Este comando vai criar a base de dados utilizada no projeto
 
-## Method 2: From Artifactory
-### 1) Download latest pax from artifactory
-Get latest package from [artifactory](https://zowe.jfrog.io/artifactory/libs-snapshot-local/org/zowe/sample-node-api/1.0.0-SNAPSHOT)
+Node e nmp:
 
-Choose the latest pax build provided from the link above and download it into your local storage.
+* Vá até raiz do projeto e digite os seguintes comando
 
-### 2) Transfer and unpax on z/OS
 ```
-sftp ibmuser@mymainframe.ibm.com
-put <pax-name>.pax
+npm install && npm start
 ```
+Este comando ira installar todas as dependências do Node e iniciar o projeto
 
-## PART II: Deploy with Zowe on server
+## 🎁 Documentação
 
-### 1) login
-```  
-ssh ibmuser@my.mainframe.com       
-```
+* Graças ao nosso bom Deus essa está documentada
+* Instale o [Postman](https://www.alura.com.br/artigos/postman-como-instalar-dar-seus-primeiros-passos?gclid=Cj0KCQjw_r6hBhDdARIsAMIDhV8smMZiTS1peLJURN9xb3u1d4XRRZZUFj3CuWgKeGVdq0ACILtr77IaAtczEALw_wcB), para ler a documentação
+* Click [aqui](https://app.getpostman.com/join-team?invite_code=c78c79ad66f0e42ea76279b3b10ed7b4&target_code=31104b51400e0ea9a3e0131b15ab220b) para entrar no workspace onde estão todas as informações
 
-### 2) install component using zowe-install-component.sh script
-```
-./<zowe-runtime-dir>/bin/zowe-install-component.sh -d <zowe-extensions-dir> -i <zowe-instance-dir> -o <component-file-path> -l <log-folder>
-```
-```
-<zowe-extensions-dir> - Directory that will hold all external extensions installed onto zowe
-<zowe-instance-dir> - Current installed Zowe's instance directory
-<component-file-path> - The path to the component being installed (the component file transferred from local to z/OS in PART I)
-<log-file> - Directory that will hold the logs of the component installation
-```
-
-### 3) Lifecycle scripts of the component
-
-We expect following in service folder `start.sh`. In our case its bin folder with relevant scripts.
-
-`start.sh` starts node app on configured port       
-`env.sh` its custom script use to configure port for our node app, feel free to use your desired way         
-
-### 4) Access newly deployed webservice
-
-Please see static definition file `sample-node-api.yml`      
-It configures service endpoint as `sample-node-api` with property `serviceId`     
-We also provide api gateway base path `api\v1` with property `gatewayUrl` in same file.        
+OBS: todas as rotas de pessoa estão vinculadas a um token que é gerado quando você faz login
 
 
-In effect, service can be accessed with following url:      
-`https://{host}:{GATEWAY_PORT}/{gatewayUrl}/{serviceId}/*`    
-
-where `GATEWAY_PORT` is configured in $INSTANCE_DIR/instance.env      
-
-Verify by accessing following:      
-`https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/`            
-`https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/1/`            
-`https://my.mainframe.com:7554/api/v1/sample-node-api/accounts/1/cars/`              
-
-### 5) Registered With API Catalog
-
-**API Catalog**
-![APICatalog_Dashboard](./screenshots/APICatalog_Dashboard.png)
-
-![ApiCatalog_SampleNodeApi_SwaggerDoc](./screenshots/ApiCatalog_SampleNodeApi_SwaggerDoc.png)
-
-**Discovery Service Dashboard**
-![DiscoveryService_Dashboard](./screenshots/DiscoveryService_Dashboard.png)
+---
+⌨️ com ❤️ por [Armstrong Lohãns](https://gist.github.com/lohhans) 😊
