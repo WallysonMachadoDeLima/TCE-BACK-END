@@ -20,7 +20,7 @@ Banco de dados: da sua preferência, exemplo, mysql, mariadb e etc
 
 Para ter um ambiente de trabalho pronto para execução, siga o apasso-a-passo informado.
 
-Node e nmp:
+Node e npm:
 
 * Consulte [Alura](https://www.alura.com.br/artigos/como-instalar-node-js-windows-linux-macos?gclid=Cj0KCQjw_r6hBhDdARIsAMIDhV_pMPCXNRN4UTTcWJP5YBBN8R556nLzUG6-3cSIjvxOj07RtU8-gWUaArTnEALw_wcB) para instalar os pacostes independentemente de seu sistema operacional
 
@@ -40,7 +40,7 @@ database\script.sql
 ```
 Este comando vai criar a base de dados utilizada no projeto
 
-Node e nmp:
+Node e npm:
 
 * Vá até raiz do projeto e digite os seguintes comando
 
