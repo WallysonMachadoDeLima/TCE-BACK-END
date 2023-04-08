@@ -22,10 +22,10 @@ Para ter um ambiente de trabalho pronto para execução, siga o apasso-a-passo i
 
 Node e nmp:
 
-* Consulte [Alura](https://www.alura.com.br/artigos/como-instalar-node-js-windows-linux-macos?gclid=Cj0KCQjw_r6hBhDdARIsAMIDhV_pMPCXNRN4UTTcWJP5YBBN8R556nLzUG6-3cSIjvxOj07RtU8-gWUaArTnEALw_wcB) para instalar os pacostes independentemente de seu sistema operacional;
+* Consulte [Alura](https://www.alura.com.br/artigos/como-instalar-node-js-windows-linux-macos?gclid=Cj0KCQjw_r6hBhDdARIsAMIDhV_pMPCXNRN4UTTcWJP5YBBN8R556nLzUG6-3cSIjvxOj07RtU8-gWUaArTnEALw_wcB) para instalar os pacostes independentemente de seu sistema operacional
 
 Banco de dados:
-* Consulte [Alura](https://www.alura.com.br/artigos/mysql-do-download-e-instalacao-ate-sua-primeira-tabela) para instalar os o MySQl em sua máquina. Lembrando novamente, utilize o de sua preferência.;
+* Consulte [Alura](https://www.alura.com.br/artigos/mysql-do-download-e-instalacao-ate-sua-primeira-tabela) para instalar os o MySQl em sua máquina. Lembrando novamente, utilize o de sua preferência
 
 ## 📦 Implantação
 
