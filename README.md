@@ -58,7 +58,7 @@ Este comando ira installar todas as dependências do Node e iniciar o projeto
 OBS: todas as rotas de pessoa estão vinculadas a um token que é gerado quando você faz login, então coloque ele no campo abaixo
 
 <div align="center" >
-  <img src="https://user-images.githubusercontent.com/85263408/230698410-194077b8-379b-48b0-990d-9f6516f28c06.png" width="70rem"/>
+  <img src="https://user-images.githubusercontent.com/85263408/230698410-194077b8-379b-48b0-990d-9f6516f28c06.png" width="700px"/>
 </div>
 
 ---
