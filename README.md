@@ -55,7 +55,7 @@ Este comando ira installar todas as dependências do Node e iniciar o projeto
 * Instale o [Postman](https://www.alura.com.br/artigos/postman-como-instalar-dar-seus-primeiros-passos?gclid=Cj0KCQjw_r6hBhDdARIsAMIDhV8smMZiTS1peLJURN9xb3u1d4XRRZZUFj3CuWgKeGVdq0ACILtr77IaAtczEALw_wcB), para ler a documentação
 * Click [aqui](https://app.getpostman.com/join-team?invite_code=c78c79ad66f0e42ea76279b3b10ed7b4&target_code=31104b51400e0ea9a3e0131b15ab220b) para entrar no workspace onde estão todas as informações
 
-⚠️ NÃO APAGUE NADA, POIS ISSO RESULTARÁ NA PERDA DA DOCUMENTAÇÃO !!!
+⚠️ NÃO SALVE E NEM APAGUE NADA, POIS ISSO RESULTARÁ NA PERCA ORIGINAL DA DOCUMENTAÇÃO !!!
 
 OBS: todas as rotas de pessoa estão vinculadas a um token que é gerado quando você faz login, então coloque ele no campo abaixo
 
