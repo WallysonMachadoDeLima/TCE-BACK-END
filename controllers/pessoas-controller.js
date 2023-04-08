@@ -90,15 +90,17 @@ exports.getPessoas = async (req, res, next) => {
   try {
     let query = `SELECT * FROM Pessoa WHERE id_usu_fk = ?`;
     const search = req.query.search;
+    console.log(search);
     const minSearch = 3;
     if (search.length >= minSearch) {
-      query += ` AND nome_pes LIKE '%?%' OR cpf_pes LIKE '%$?%'`;
+      query += ` AND nome_pes LIKE '%${search}%' OR cpf_pes LIKE '%${search}%'`;
     }
-    const result = await mysql.execute(query, [req.user.id, search, search]);
+    console.log(query);
+    const result = await mysql.execute(query, [req.user.id]);
 
     const response = {
       quantidade: result.length,
-      produto: result.map((pes) => {
+      pessoa: result.map((pes) => {
         return {
           id: pes.id_pes,
           nome: pes.nome_pes,
@@ -138,7 +140,7 @@ exports.getIdPessoas = async (req, res, next) => {
       return res.status(404).send({ mensagem: "Pessoa não encontrado" });
     }
     const response = {
-      produto: {
+      pessoa: {
         id: result[0].id_pes,
         nome: result[0].nome_pes,
         cpf: result[0].cpf_pes,
@@ -170,7 +172,7 @@ exports.getIdPessoas = async (req, res, next) => {
 };
 
 // PATCH
-exports.patchProdutos = async (req, res, next) => {
+exports.patchPessoas = async (req, res, next) => {
   try {
     let query = `UPDATE Pessoa SET `;
     let values = [];
@@ -205,7 +207,7 @@ exports.patchProdutos = async (req, res, next) => {
 };
 
 // DELTE
-exports.deleteProdutos = async (req, res, next) => {
+exports.deletePessoas = async (req, res, next) => {
   try {
     const query = "DELETE FROM Pessoa WHERE id_pes = ?";
     const result = await mysql.execute(query, [req.params.id]);

@@ -32,10 +32,10 @@ router.patch(
   (req, res, next) =>
     validation.validateEmail(req, res, next, "Pessoa", "email_pes"),
   validation.validateAddress,
-  PessoasControllers.patchProdutos
+  PessoasControllers.patchPessoas
 );
 
 // DELETE
-router.delete("/:id", login.mandatory, PessoasControllers.deleteProdutos);
+router.delete("/:id", login.mandatory, PessoasControllers.deletePessoas);
 
 module.exports = router;
