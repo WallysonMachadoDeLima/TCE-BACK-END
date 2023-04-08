@@ -69,7 +69,7 @@ exports.loginUsuario = async (req, res, next) => {
             }
           );
           return res.status(200).send({
-            mensagem: "Authenticado com sucesso",
+            mensagem: "Autenticado com sucesso",
             Authorization: "Bearer " + token,
           });
         }

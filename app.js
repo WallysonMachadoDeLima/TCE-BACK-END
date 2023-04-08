@@ -1,7 +1,14 @@
 const express = require("express");
-const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const cors = require("cors");
+const app = express();
+
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
 // Import routes
 const routeUsuarios = require("./routes/usuarios");
@@ -9,26 +16,20 @@ const routePessoas = require("./routes/pessoas");
 const routeIntegracoes = require("./routes/integracoes");
 
 // Configs
-app.use(morgan("dev")); // Logs
-app.use(bodyParser.urlencoded({ extended: false })); // Simple data
-app.use(bodyParser.json()); // Setting JSON format
+app.use(morgan("dev"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use((req, res, next) => {
-  // Header permissions
-  res.header("Access-Controll-Allw-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
   res.header(
-    "Access-Controll-Allow-Header",
-    "Origin",
-    "X-Requested-With",
-    "Content-Type",
-    "Accept",
-    "Authorization"
+    "Access-Control-Allow-Header",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
-  if (req.method == "OPTIONS") {
-    // Setting CORS
+
+  if (req.method === "OPTIONS") {
     res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
     return res.status(200).send({});
   }
-
   next();
 });
 
