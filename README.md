@@ -62,4 +62,4 @@ OBS: todas as rotas de pessoa estão vinculadas a um token que é gerado quando 
 </div>
 
 ---
-⌨️ com ❤️ por [Armstrong Lohãns](https://gist.github.com/lohhans) 😊
+⌨️ com  MUITO SONO por Wallyson Machado 👍
