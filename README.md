@@ -47,7 +47,7 @@ Node e nmp:
 ```
 npm install && npm start
 ```
-Este comando ira installar todas as dependências do Node e iniciar o projeto
+Este comando ira installar todas as dependências do Node e iniciar o projeto, a porta padrão é 5000, mas você pode mudar isso no projeto
 
 ## 🎁 Documentação
 
